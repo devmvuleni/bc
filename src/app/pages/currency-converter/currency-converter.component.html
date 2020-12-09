@@ -1,0 +1,42 @@
+<div>
+  <form class="currency-form">
+    <mat-form-field class="currency-full-width">
+       <mat-label>Currency value</mat-label>
+       <input #matSelect matInput maxlength="10" placeholder="Ex. 200" name="currencyValue" [(ngModel)]='currencyValue'>
+     </mat-form-field>
+
+   <h4>Current</h4>
+   <mat-form-field appearance="fill">
+     <mat-label>From</mat-label>
+     <mat-select [(ngModel)]="selectedFromValue" name="fromCurrency" (selectionChange)="updateExchange()">
+       <mat-option *ngFor="let currency of currencies | keyvalue" [value]="currency.value">
+         {{currency.key}}
+       </mat-option>
+     </mat-select>
+   </mat-form-field>
+
+   <h4>Exchange to</h4>
+   <mat-form-field appearance="fill">
+     <mat-label>To</mat-label>
+     <mat-select [(ngModel)]="selectedToValue" name="toCurrency" (selectionChange)="updateExchange()">
+       <mat-option *ngFor="let currency of currencies | keyvalue" [value]="currency.value">
+         {{currency.key}}
+       </mat-option>
+     </mat-select>
+   </mat-form-field>
+ </form>
+</div>
+
+<div>
+  <div class="exchanged">
+    {{ exchangedAmount | currency }}
+  </div>
+  <div>
+    <ul class="history">
+      <li *ngFor="let node of graphData | keyvalue" [style.top.%]="node.value.ZAR"></li>
+    </ul>
+  </div>
+
+  <div *ngIf="showGraph" echarts [options]="chartOption" class="demo-chart"></div>
+
+</div>

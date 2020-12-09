@@ -1,0 +1,11 @@
+.history {
+  list-style-type: none;
+}
+
+.history li {
+  float: left;
+}
+
+.demo-chart {
+  height: 400px;
+}

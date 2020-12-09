@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Meter",
+    "symbol": "m",
+    "conversionFactor": 1
+  },
+  {
+    "name": "Yard",
+    "symbol": "yd",
+    "conversionFactor": 0.9144
+  },
+  {
+    "name": "Inch",
+    "symbol": "in",
+    "conversionFactor": 0.0254
+  }
+]

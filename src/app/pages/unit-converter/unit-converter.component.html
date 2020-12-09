@@ -1,0 +1,39 @@
+<div>
+  <form class="unit-form">
+    <div>
+      <mat-form-field class="unit-full-width">
+        <mat-label>Current unit</mat-label>
+        <input matInput maxlength="10" placeholder="Ex. 200" name="fromUnitValue" [(ngModel)]="fromUnitValue" (keyup)="updateMeasurement()">
+      </mat-form-field>
+
+    <h4>Current</h4>
+    <mat-form-field appearance="fill">
+      <mat-label>From</mat-label>
+      <mat-select [(ngModel)]="selectedFromUnit" name="fromUnit">
+        <mat-option *ngFor="let unit of units" [value]="unit.conversionFactor">
+          {{unit.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    </div>
+
+    <div>
+
+    <mat-form-field class="unit-full-width">
+      <mat-label>To</mat-label>
+      <input matInput maxlength="10" placeholder="Ex. 200" name="toUnitValue" [value]="convertedUnit" [(ngModel)]="toUnitValue" (keyup)="updateMeasurementFromRight()">
+    </mat-form-field>
+
+     <h4>Convert to</h4>
+     <mat-form-field appearance="fill">
+       <mat-label>To</mat-label>
+       <mat-select [(ngModel)]="selectedToUnit" name="toUnit">
+         <mat-option *ngFor="let unit of units" [value]="unit.conversionFactor">
+           {{unit.name}}
+         </mat-option>
+       </mat-select>
+     </mat-form-field>
+   </div>
+   <button mat-stroked-button (click)="updateMeasurement()"> Convert</button>
+ </form>
+</div>
